@@ -26,3 +26,11 @@ def fishing(name, worms):
         print(f'Итого, рыбак {name} поймал'):
         for name_fish, count in catch.items():
             print(f'{name_fish} - {count}')
+
+if __name__ == '__main__':
+    proc = Process(target=fishing, kwargs=dict(name='Вася', worms=10))
+    proc.start()
+
+    fishing('Коля', worms=10)
+
+    proc.join()
