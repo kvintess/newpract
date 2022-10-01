@@ -15,6 +15,14 @@ def fishing(name, worms):
     catch = defaultdict(int)
 
     for worm in worms:
-        print(f'{name} Червяк номер {worm} - забросил, ждём...', flush=true)
+        print(f'{name} Червяк номер {worm} - забросил, ждём...', flush=True)
         _ = 3 ** (10000 * random.randint(70, 100))
         fish = random.choice(FISH)
+        if fish is None:
+            print(f'Тьфу!У {name} Сожрали червяка', flush=True)
+        else:
+            print(f'Ура!! У меня {fish}' flush=True)
+            catch[fish] += 1
+        print(f'Итого, рыбак {name} поймал'):
+        for name_fish, count in catch.items():
+            print(f'{name_fish} - {count}')
